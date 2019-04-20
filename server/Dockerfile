@@ -21,8 +21,8 @@ ENV KIE_MAVEN_REPO http://52.173.146.231:8080/business-central/maven2
 ENV KIE_MAVEN_REPO_USER admin
 ENV KIE_MAVEN_REPO_PASSWORD admin
 
-#USER root
-#COPY etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
+USER root
+COPY etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
 
 ####### CUSTOM JBOSS USER ############
 # Switchback to jboss user
