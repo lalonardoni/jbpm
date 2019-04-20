@@ -22,10 +22,10 @@ ENV KIE_MAVEN_REPO_USER admin
 ENV KIE_MAVEN_REPO_PASSWORD admin
 
 COPY etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
-COPY etc/standalone.xml $JBOSS_HOME/standalone/configuration/standalone.xml
+COPY etc/standalone-kie-server-full.xml $JBOSS_HOME/standalone/configuration/standalone-kie-server-full.xml
 
 USER root
-RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml
+RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone-kie-server-full.xml
 
 ####### CUSTOM JBOSS USER ############
 # Switchback to jboss user
