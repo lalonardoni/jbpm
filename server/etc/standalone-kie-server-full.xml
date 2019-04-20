@@ -51,6 +51,7 @@
         <property name="org.jbpm.ht.admin.group" value="admin"/>
         <property name="org.jbpm.task.cleanup.enabled" value="false"/>
         <property name="org.kie.server.persistence.ds" value="java:jboss/datasources/jBPMDS"/>
+		<property name="org.kie.server.persistence.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
         <property name="appformer.experimental.features" value="true"/>
     </system-properties>
     <management>
