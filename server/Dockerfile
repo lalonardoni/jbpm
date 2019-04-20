@@ -21,10 +21,14 @@ ENV KIE_MAVEN_REPO http://52.173.146.231:8080/business-central/maven2
 ENV KIE_MAVEN_REPO_USER admin
 ENV KIE_MAVEN_REPO_PASSWORD admin
 
-USER root
+RUN mkdir -p $HOME/.m2
 ADD etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
 ADD etc/standalone-kie-server-full.xml $JBOSS_HOME/standalone/configuration/standalone-kie-server-full.xml
-RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone-kie-server-full.xml
+ADD etc/settings.xml $JBOSS_HOME/../.m2/settings.xml
+
+USER root
+RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone-kie-server-full.xml && \
+chown jboss:jboss $JBOSS_HOME/../.m2/settings.xml
 
 ####### CUSTOM JBOSS USER ############
 # Switchback to jboss user
