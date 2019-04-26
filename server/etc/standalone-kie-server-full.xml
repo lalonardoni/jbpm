@@ -45,10 +45,10 @@
         <property name="org.kie.server.location" value="http://23.99.219.85:8080/kie-server/services/rest/server"/>
 		<property name="org.kie.server.user" value="kieserver"/>
 		<property name="org.kie.server.pwd" value="kieserver1!"/>
-		<property name="org.kie.server.controller.user" value="admin"/>
-		<property name="org.kie.server.controller.pwd" value="admin"/>
+		<property name="org.kie.server.controller.user" value="wbadmin"/>
+		<property name="org.kie.server.controller.pwd" value="wbadmin"/>
         <property name="org.jbpm.casemgmt.showcase.url" value="/jbpm-casemgmt"/>
-        <property name="org.jbpm.ht.admin.group" value="admin"/>
+        <property name="org.jbpm.ht.admin.group" value="wbadmin"/>
         <property name="org.jbpm.task.cleanup.enabled" value="false"/>
         <property name="org.kie.server.persistence.ds" value="java:jboss/datasources/jBPMDS"/>
 		<property name="org.kie.server.persistence.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
