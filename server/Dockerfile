@@ -15,11 +15,11 @@ ENV KIE_SERVER_USER kieserver
 ENV KIE_SERVER_PWD kieserver1!
 # When using this image against jboss/jbpm-workbench-showcase use /jbpm-console/rest/controller
 ENV KIE_SERVER_CONTROLLER http://52.173.146.231:8080/business-central/rest/controller
-ENV KIE_SERVER_CONTROLLER_USER admin
-ENV KIE_SERVER_CONTROLLER_PWD admin
+ENV KIE_SERVER_CONTROLLER_USER wbadmin
+ENV KIE_SERVER_CONTROLLER_PWD wbadmin
 ENV KIE_MAVEN_REPO http://52.173.146.231:8080/business-central/maven2    
-ENV KIE_MAVEN_REPO_USER admin
-ENV KIE_MAVEN_REPO_PASSWORD admin
+ENV KIE_MAVEN_REPO_USER wbadmin
+ENV KIE_MAVEN_REPO_PASSWORD wbadmin
 
 RUN mkdir -p $HOME/.m2
 ADD etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
