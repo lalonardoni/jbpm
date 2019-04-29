@@ -173,7 +173,7 @@
                 </datasource>
                 <xa-datasource jndi-name="java:jboss/datasources/jBPMDS" pool-name="jBPMXADS">
                     <xa-datasource-property name="ServerName">
-                        neobedb.mysql.database.azure.com
+                        168.61.179.38
                     </xa-datasource-property>
                     <xa-datasource-property name="PortNumber">
                         3306
@@ -184,7 +184,7 @@
                     <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
                     <driver>mysql</driver>
                     <security>
-                        <user-name>jbpm@neobedb</user-name>
+                        <user-name>jbpm</user-name>
                         <password>jbpm</password>
                     </security>
                     <validation>
