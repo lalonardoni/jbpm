@@ -188,7 +188,6 @@
 						<initial-pool-size>5</initial-pool-size>
 						<max-pool-size>20</max-pool-size>
 						<prefill>true</prefill>
-						<flush-strategy>EntirePool</flush-strategy>
                     </xa-pool>
                     <security>
                         <user-name>jbpm</user-name>
