@@ -173,7 +173,7 @@
                 </datasource>
                 <xa-datasource jndi-name="java:jboss/datasources/jBPMDS" pool-name="jBPMXADS">
                     <xa-datasource-property name="ServerName">
-                        40.122.202.132
+                        168.61.220.134
                     </xa-datasource-property>
                     <xa-datasource-property name="PortNumber">
                         3306
