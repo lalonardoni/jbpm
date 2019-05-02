@@ -183,13 +183,13 @@
                     </xa-datasource-property>
                     <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
                     <driver>mysql</driver>
-					<pool>
+					<xa-pool>
 						<min-pool-size>10</min-pool-size>
 						<initial-pool-size>5</initial-pool-size>
 						<max-pool-size>500</max-pool-size>
 						<prefill>true</prefill>
 						<flush-strategy>EntirePool</flush-strategy>
-                    </pool>
+                    </xa-pool>
                     <security>
                         <user-name>jbpm</user-name>
                         <password>jbpm</password>
