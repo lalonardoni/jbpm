@@ -41,8 +41,8 @@
     </extensions>
      <system-properties>
         <property name="org.kie.server.id" value="kie-server"/>
-        <property name="org.kie.server.controller" value="http://52.173.146.231:8080/business-central/rest/controller"/>
-        <property name="org.kie.server.location" value="http://23.99.219.85:8080/kie-server/services/rest/server"/>
+        <property name="org.kie.server.controller" value="http://40.77.30.247:8080/business-central/rest/controller"/>
+        <property name="org.kie.server.location" value="http://13.89.188.255:8080/kie-server/services/rest/server"/>
 		<property name="org.kie.server.user" value="kieserver"/>
 		<property name="org.kie.server.pwd" value="kieserver1!"/>
 		<property name="org.kie.server.controller.user" value="wbadmin"/>
