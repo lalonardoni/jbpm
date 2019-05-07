@@ -171,27 +171,36 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-				<datasource jndi-name="java:jboss/datasources/jBPMDS" pool-name="jBPMXADS" enabled="true" use-java-context="true">
-					<connection-url>jdbc:mysql://168.61.220.134:3306/jbpm?autoReconnect=true&useSSL=false</connection-url>
-					<driver>mysql</driver>
-					<pool>
+                <xa-datasource jndi-name="java:jboss/datasources/jBPMDS" pool-name="jBPMXADS">
+                    <xa-datasource-property name="ServerName">
+                        168.61.220.134
+                    </xa-datasource-property>
+                    <xa-datasource-property name="PortNumber">
+                        3306
+                    </xa-datasource-property>
+                    <xa-datasource-property name="DatabaseName">
+                        jbpm
+                    </xa-datasource-property>
+                    <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+                    <driver>mysql</driver>
+					<xa-pool>
 						<min-pool-size>10</min-pool-size>
 						<initial-pool-size>5</initial-pool-size>
 						<max-pool-size>20</max-pool-size>
 						<prefill>true</prefill>
-                    </pool>					
-					<security>
-						<user-name>jbpm</user-name>
-						<password>jbpm</password>
-					</security>
-					<validation>
+                    </xa-pool>
+                    <security>
+                        <user-name>jbpm</user-name>
+                        <password>jbpm</password>
+                    </security>
+                    <validation>
                         <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
                         <validate-on-match>true</validate-on-match>
                         <background-validation>true</background-validation>
                         <background-validation-millis>120000</background-validation-millis>
                         <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
                     </validation>
-				</datasource>				                
+                </xa-datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
