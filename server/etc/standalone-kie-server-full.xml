@@ -184,13 +184,6 @@
 						<user-name>jbpm</user-name>
 						<password>jbpm</password>
 					</security>
-					<validation>
-                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
-                        <validate-on-match>true</validate-on-match>
-                        <background-validation>true</background-validation>
-                        <background-validation-millis>120000</background-validation-millis>
-                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
-                    </validation>
 				</datasource>						                
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
