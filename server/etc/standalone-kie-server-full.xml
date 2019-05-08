@@ -173,11 +173,30 @@
                 </datasource>
 				<datasource jndi-name="java:jboss/datasources/jBPMDS" pool-name="jBPMXADS" enabled="true" use-java-context="true">
 					<connection-url>jdbc:mysql://168.61.220.134:3306/jbpm?autoReconnect=true&amp;autoReconnectForPools=true&amp;useSSL=false</connection-url>
-					<driver>mysql</driver>			
+					<driver>mysql</driver>		
+					<pool>
+						<min-pool-size>10</min-pool-size>
+						<initial-pool-size>5</initial-pool-size>
+						<max-pool-size>20</max-pool-size>
+                    </pool>							
 					<security>
 						<user-name>jbpm</user-name>
 						<password>jbpm</password>
 					</security>
+					<validation>    
+					  <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"></valid-connection-checker>  
+					  <validate-on-match>true</validate-on-match>    
+					  <background-validation>false</background-validation>    
+					</validation>    
+                    <timeout>  
+                        <set-tx-query-timeout>false</set-tx-query-timeout>  
+                        <blocking-timeout-millis>0</blocking-timeout-millis>  
+                        <idle-timeout-minutes>0</idle-timeout-minutes>  
+                        <query-timeout>0</query-timeout>  
+                        <use-try-lock>0</use-try-lock>  
+                        <allocation-retry>0</allocation-retry>  
+                        <allocation-retry-wait-millis>0</allocation-retry-wait-millis>  
+                    </timeout>  					
 				</datasource>						                
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
@@ -226,8 +245,8 @@
             </mdb>
             <pools>
                 <bean-instance-pools>
-                    <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
-                    <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                    <strict-max-pool name="mdb-strict-max-pool" max-pool-size="20" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                    <strict-max-pool name="slsb-strict-max-pool" max-pool-size="20" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
                 </bean-instance-pools>
             </pools>
             <caches>
