@@ -172,7 +172,7 @@
                     </security>
                 </datasource>
 				<datasource jndi-name="java:jboss/datasources/jBPMDS" pool-name="jBPMXADS" enabled="true" use-java-context="true">
-					<connection-url>jdbc:mysql://168.61.220.134:3306/jbpm?autoReconnect=true&amp;useSSL=false</connection-url>
+					<connection-url>jdbc:mysql://168.61.220.134:3306/jbpm?autoReconnect=true&amp;autoReconnectForPools=true&amp;useSSL=false</connection-url>
 					<driver>mysql</driver>
 					<pool>
 						<min-pool-size>10</min-pool-size>
