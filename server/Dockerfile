@@ -24,7 +24,6 @@ ENV KIE_MAVEN_REPO_PASSWORD wbadmin
 RUN mkdir -p $HOME/.m2
 ADD etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
 ADD etc/standalone-kie-server-full.xml $JBOSS_HOME/standalone/configuration/standalone-kie-server-full.xml
-ADD etc/mysql-connector-java.jar $JBOSS_HOME/modules/com/mysql/main/mysql-connector-java.jar
 ADD etc/settings.xml $JBOSS_HOME/../.m2/settings.xml
 
 USER root
