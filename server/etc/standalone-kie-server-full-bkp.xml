@@ -173,7 +173,13 @@
                 </datasource>
 				<datasource jndi-name="java:jboss/datasources/jBPMDS" pool-name="jBPMXADS" enabled="true" use-java-context="true">
 					<connection-url>jdbc:mysql://168.61.220.134:3306/jbpm?autoReconnect=true&amp;autoReconnectForPools=true&amp;useSSL=false</connection-url>
-					<driver>mysql</driver>			
+					<driver>mysql</driver>
+					<pool>
+						<min-pool-size>10</min-pool-size>
+						<initial-pool-size>5</initial-pool-size>
+						<max-pool-size>20</max-pool-size>
+						<prefill>true</prefill>
+                    </pool>					
 					<security>
 						<user-name>jbpm</user-name>
 						<password>jbpm</password>
@@ -226,8 +232,8 @@
             </mdb>
             <pools>
                 <bean-instance-pools>
-                    <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
-                    <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                    <strict-max-pool name="mdb-strict-max-pool" max-pool-size="20" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                    <strict-max-pool name="slsb-strict-max-pool" max-pool-size="20" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
                 </bean-instance-pools>
             </pools>
             <caches>
@@ -462,7 +468,7 @@
                 <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
                 <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
                 <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
-                <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector"/>
+                <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector" use-global-pools="false" thread-pool-max-size="10"/>
                 <pooled-connection-factory name="activemq-ra" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm" transaction="xa"/>
             </server>
         </subsystem>
