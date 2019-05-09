@@ -178,6 +178,7 @@
 						<min-pool-size>10</min-pool-size>
 						<initial-pool-size>5</initial-pool-size>
 						<max-pool-size>20</max-pool-size>
+						<prefill>true</prefill>
                     </pool>							
 					<security>
 						<user-name>jbpm</user-name>
@@ -187,16 +188,7 @@
 					  <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"></valid-connection-checker>  
 					  <validate-on-match>true</validate-on-match>    
 					  <background-validation>false</background-validation>    
-					</validation>    
-                    <timeout>  
-                        <set-tx-query-timeout>false</set-tx-query-timeout>  
-                        <blocking-timeout-millis>0</blocking-timeout-millis>  
-                        <idle-timeout-minutes>0</idle-timeout-minutes>  
-                        <query-timeout>0</query-timeout>  
-                        <use-try-lock>0</use-try-lock>  
-                        <allocation-retry>0</allocation-retry>  
-                        <allocation-retry-wait-millis>0</allocation-retry-wait-millis>  
-                    </timeout>  					
+					</validation>    					
 				</datasource>						                
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
@@ -481,7 +473,7 @@
                 <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
                 <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
                 <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
-                <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector"/>
+				<connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector" use-global-pools="false" thread-pool-max-size="10"/>
                 <pooled-connection-factory name="activemq-ra" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm" transaction="xa"/>
             </server>
         </subsystem>
