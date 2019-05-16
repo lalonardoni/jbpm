@@ -38,6 +38,7 @@
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
+		<extension module="org.keycloak.keycloak-adapter-subsystem"/>
     </extensions>
      <system-properties>
         <property name="org.kie.server.id" value="kie-server"/>
@@ -479,6 +480,20 @@
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
         <subsystem xmlns="urn:jboss:domain:resource-adapters:5.0"/>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
+		<subsystem xmlns="urn:jboss:domain:keycloak:1.1">
+			<realm name="Saude_poc">
+				<auth-server-url>http://168.61.158.3:8080/auth</auth-server-url>
+				<ssl-required>none</ssl-required>
+				<realm-public-key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAns5MFBqXAbyVHlqe+y51vjMTzP8VkGQ1EvywLQoqJH1AQRjtJK8DrnReGjOxf1lsh0F3uyvNgRmnx+R0FmuMjdKqoNra7oapZ24i/vCztbw2WwVoHT1mUm6iQFwcHxMUe/cfgGLdzLfc3Cz0FirOUXvC7rrjw8EomaI44J+Avz3dwoYiL/BKIsJSUkPjYbRCM3RQIje3EEYjzORSgnl6yUi9dAwW1kivhCXcWyJ/1HMDwkB8ZE1YOCxKPX9PFuTNJXa5qjpg4R9ZUm1lbxNg069sfbWRF0BF/S+avXeiUrBElcqkTLDONfrOcwUWVgWVjGjjw3N6SCtdmQvU+ViWXwIDAQAB</realm-public-key>
+			</realm>
+		  <secure-deployment name="business-central.war">
+			<realm>Saude_poc</realm>
+			<resource>business-central</resource>
+			<enable-basic-auth>true</enable-basic-auth>
+			<credential name="secret">0cc95f39-eae1-4869-b96e-33214e3b2b76</credential>
+			<principal-attribute>preferred_username</principal-attribute>
+		  </secure-deployment>	  
+		</subsystem>		
         <subsystem xmlns="urn:jboss:domain:security:2.0">
             <security-domains>
                 <security-domain name="other" cache-type="default">
@@ -511,6 +526,11 @@
                         <policy-module code="Delegating" flag="required"/>
                     </authorization>
                 </security-domain>
+                <security-domain name="keycloak">
+                    <authentication>
+                        <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule" flag="required"/>
+                    </authentication>
+                </security-domain>				
             </security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">

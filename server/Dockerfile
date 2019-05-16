@@ -25,6 +25,7 @@ RUN mkdir -p $HOME/.m2
 ADD etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
 ADD etc/standalone-kie-server-full.xml $JBOSS_HOME/standalone/configuration/standalone-kie-server-full.xml
 ADD etc/settings.xml $JBOSS_HOME/../.m2/settings.xml
+COPY etc/add-ons/ $JBOSS_HOME/modules/system/add-ons/
 
 USER root
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone-kie-server-full.xml && \
