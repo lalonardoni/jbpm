@@ -1,5 +1,5 @@
 #################################################################################
-# Dockerfile that provides the image for JBoss jBPM Workbench 7.18.0.Final Showcase
+# Dockerfile that provides the image for JBoss jBPM Workbench 7.17.0.Final Showcase
 #################################################################################
 
 ####### BASE ############
@@ -17,6 +17,7 @@ ENV JAVA_OPTS -Xms256m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m
 ADD etc/application-users.properties $JBOSS_HOME/standalone/configuration/application-users.properties
 ADD etc/application-roles.properties $JBOSS_HOME/standalone/configuration/application-roles.properties
 ADD etc/jbpm-custom.cli $JBOSS_HOME/bin/jbpm-custom.cli
+COPY etc/add-ons/ $JBOSS_HOME/modules/system/add-ons/
 
 # Added files are chowned to root user, change it to the jboss one.
 USER root
