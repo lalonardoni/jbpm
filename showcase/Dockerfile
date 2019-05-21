@@ -6,10 +6,11 @@
 FROM jboss/jbpm-workbench:7.17.0.Final
 
 ####### MAINTAINER ############
-MAINTAINER "Michael Biarnes Kiefer" "mbiarnes@redhat.com"
+MAINTAINER "Leandro Alberto Lonardoni"
 
 ####### ENVIRONMENT ############
 # Use demo and examples by default in this showcase image (internet connection required).
+ENV JBOSS_BIND_ADDRESS 0.0.0.0
 ENV KIE_SERVER_PROFILE standalone
 ENV JAVA_OPTS -Xms256m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8
 
