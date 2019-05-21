@@ -13,6 +13,7 @@ MAINTAINER "Leandro Alberto Lonardoni"
 ENV JBOSS_BIND_ADDRESS 0.0.0.0
 ENV KIE_SERVER_PROFILE standalone
 ENV JAVA_OPTS -Xms256m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8
+ENV EXTRA_OPTS -Dorg.jbpm.ht.admin.group=admin -Dorg.uberfire.nio.git.ssh.host=$JBOSS_BIND_ADDRESS
 
 ####### jBPM Workbench CUSTOM CONFIGURATION ############
 ADD etc/application-users.properties $JBOSS_HOME/standalone/configuration/application-users.properties
